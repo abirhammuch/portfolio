@@ -110,7 +110,7 @@ const Header = () => {
             <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-500 to-violet-500 text-white text-xl shadow-xl shadow-sky-500/20">
               &lt;/&gt;
             </span>
-            <span className="text-slate-900 dark:text-white">DevPortfolio</span>
+            <span className="text-slate-900 dark:text-white">Abirham</span>
           </button>
 
           {/* Desktop Navigation - Scroll to sections */}
@@ -137,8 +137,8 @@ const Header = () => {
 
           {/* Icons */}
           <div className="flex items-center gap-3">
-            <ThemeToggle />
-
+            
+              {/* <ThemeToggle /> */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden flex h-12 w-12 items-center justify-center rounded-full border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 transition hover:border-blue-500 hover:text-blue-600 cursor-pointer"

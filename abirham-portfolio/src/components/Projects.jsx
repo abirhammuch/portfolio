@@ -4,6 +4,7 @@ import { FiExternalLink } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import groceryImage from "../assets/grocery1.png";
 import portfolioImage from "../assets/portfolio.png";
+import manageImage from "../assets/manage.png";
 
 
 
@@ -11,7 +12,7 @@ import portfolioImage from "../assets/portfolio.png";
 const Projects = () => {
   const projects = [
     {
-      title: "IT Asset Management System",
+      title: "Modern Grocery Shopping Platform",
       description: "Modern grocery shopping platform with intuitive UI, product search and filtering, shopping cart functionality, and seamless checkout experience. Built with MERN stack.",
       tech: ["React", "Node.js", "MongoDB", "Express","Tailwind CSS","stripe"],
       github: "https://github.com/abirhammuch/grocery",
@@ -19,20 +20,20 @@ const Projects = () => {
       image: groceryImage
     },
     {
-      title: "Company Website",
+      title: "My Portfolio Website",
       description: "Full-stack portfolio website built with React frontend and Node.js backend. Features project showcase, blog functionality, and contact form with email integration. Demonstrates both UI/UX and server-side skills.",
       tech: ["React", "Tailwind CSS", "node.js", "Express", ],
-      github: "https://github.com/abirhammuch/grocery",
-      live: "https://grocery-neon-kappa.vercel.app/",
+      github: "https://github.com/abirhammuch/portfolio",
+      live: "https://portfolio-ten-sepia-94.vercel.app/",
       image: portfolioImage
     },
     {
-      title: "Help Desk Ticketing System",
-      description: "IT support ticket management platform for tracking and resolving technical issues",
+      title: "On Progress...",
+      description: "Manage is a productivity platform that helps software teams plan day-to-day tasks while keeping larger team goals in view. Unlike traditional project management tools, Manage replaces multiple subscriptions, eliminates cross-channel confusion, and improves communication across teams.",
       tech: ["React", "Node.js", "MongoDB", "Express"],
-      github: "https://github.com/abirhammuch/grocery",
-      live: "https://grocery-neon-kappa.vercel.app/",
-      image: portfolioImage
+      github: "https://github.com/abirhammuch/tailwind",
+      live: "https://manage-beige-ten.vercel.app/",
+      image: manageImage
     }
   ];
 
