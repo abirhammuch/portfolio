@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
 const Hero = () => {
   const canvasRef = useRef(null);
@@ -14,6 +13,14 @@ const Hero = () => {
     "Back End Developer",
     "Full Stack Developer",
   ];
+
+  // Scroll to section function
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   // Initialize text on mount
   useEffect(() => {
@@ -141,7 +148,7 @@ const Hero = () => {
           </div>
 
           <div className="space-y-5">
-            {/* Animated Role Text - Now clearly visible */}
+            {/* Animated Role Text */}
             <div className="text-sm uppercase tracking-[0.35em] text-sky-300/80 min-h-[28px]">
               <span className="inline-flex items-center gap-1">
                 <span className="animate-pulse">✦</span>
@@ -152,7 +159,7 @@ const Hero = () => {
 
             <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-6xl md:text-7xl">
               Web{" "}
-              <span className="bg-linear-to-r from-sky-400 via-violet-400 to-fuchsia-500 bg-clip-text text-transparent animate-gradient">
+              <span className="bg-gradient-to-r from-sky-400 via-violet-400 to-fuchsia-500 bg-clip-text text-transparent animate-gradient">
                 Developer
               </span>
             </h1>
@@ -163,44 +170,46 @@ const Hero = () => {
             </p>
           </div>
 
+          {/* Buttons - Now Functional */}
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-            <Link
-              to="/projects"
-              className="inline-flex items-center justify-center rounded-full bg-linear-to-r from-sky-500 to-violet-500 px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-sky-500/20 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+            <button
+              onClick={() => scrollToSection("projects")}
+              className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-sky-500 to-violet-500 px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-sky-500/20 transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer"
             >
               View Projects
-            </Link>
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center rounded-full border border-slate-700/80 px-8 py-3 text-sm font-semibold text-slate-200 transition-all duration-300 hover:scale-105 hover:border-slate-500 hover:text-white hover:bg-slate-800/50"
+            </button>
+            <button
+              onClick={() => scrollToSection("contact")}
+              className="inline-flex items-center justify-center rounded-full border border-slate-700/80 px-8 py-3 text-sm font-semibold text-slate-200 transition-all duration-300 hover:scale-105 hover:border-slate-500 hover:text-white hover:bg-slate-800/50 cursor-pointer"
             >
               Contact Me
-            </Link>
+            </button>
           </div>
 
+          {/* Social Icons */}
           <div className="flex items-center gap-4 text-slate-400">
-            <Link
-              to="https://github.com/abirhammuch"
+            <a
+              href="https://github.com/abirhammuch"
               target="_blank"
-              rel="noreferrer"
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-slate-700/80 bg-slate-900/70 transition-all duration-300 hover:scale-110 hover:border-sky-400/50 hover:text-white hover:shadow-lg hover:shadow-sky-500/20"
+              rel="noopener noreferrer"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-slate-700/80 bg-slate-900/70 transition-all duration-300 hover:scale-110 hover:border-sky-400/50 hover:text-white hover:shadow-lg hover:shadow-sky-500/20 cursor-pointer"
             >
               <FaGithub className="text-xl" />
-            </Link>
-            <Link
-              to="https://et.linkedin.com/in/abirham-muche-4aa7a6320"
+            </a>
+            <a
+              href="https://et.linkedin.com/in/abirham-muche-4aa7a6320"
               target="_blank"
-              rel="noreferrer"
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-slate-700/80 bg-slate-900/70 transition-all duration-300 hover:scale-110 hover:border-violet-400/50 hover:text-white hover:shadow-lg hover:shadow-violet-500/20"
+              rel="noopener noreferrer"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-slate-700/80 bg-slate-900/70 transition-all duration-300 hover:scale-110 hover:border-violet-400/50 hover:text-white hover:shadow-lg hover:shadow-violet-500/20 cursor-pointer"
             >
               <FaLinkedin className="text-xl" />
-            </Link>
-            <Link
-              to="mailto:abirhammuch526@gmail.com"
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-slate-700/80 bg-slate-900/70 transition-all duration-300 hover:scale-110 hover:border-sky-400/50 hover:text-white hover:shadow-lg hover:shadow-sky-500/20"
+            </a>
+            <a
+              href="mailto:abirhammuch526@gmail.com"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-slate-700/80 bg-slate-900/70 transition-all duration-300 hover:scale-110 hover:border-sky-400/50 hover:text-white hover:shadow-lg hover:shadow-sky-500/20 cursor-pointer"
             >
               <FaEnvelope className="text-xl" />
-            </Link>
+            </a>
           </div>
         </div>
       </main>
