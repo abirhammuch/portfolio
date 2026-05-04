@@ -113,7 +113,7 @@ const Projects = () => {
                     className="group/btn flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-sky-500 to-violet-500 text-white font-medium text-sm transition-all duration-300 hover:shadow-lg hover:shadow-sky-500/25 hover:-translate-y-0.5"
                   >
                     <FiExternalLink className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-                    <span>Live Demo</span>
+                    <span>Live</span>
                   </a>
                 </div>
               </div>
