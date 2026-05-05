@@ -1,72 +1,91 @@
 import React from "react";
 import { FaGithub } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
-import { Link } from "react-router-dom";
 import groceryImage from "../assets/grocery1.png";
 import portfolioImage from "../assets/portfolio.png";
 import manageImage from "../assets/manage.png";
-
-
-
 
 const Projects = () => {
   const projects = [
     {
       title: "Modern Grocery Shopping Platform",
-      description: "Modern grocery shopping platform with intuitive UI, product search and filtering, shopping cart functionality, and seamless checkout experience. Built with MERN stack.",
-      tech: ["React", "Node.js", "MongoDB", "Express","Tailwind CSS","stripe"],
+      description:
+        "Modern grocery shopping platform with intuitive UI, product search and filtering, shopping cart functionality, and seamless checkout experience. Built with MERN stack.",
+      tech: [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Express",
+        "Tailwind CSS",
+        "stripe",
+      ],
       github: "https://github.com/abirhammuch/grocery",
       live: "https://grocery-neon-kappa.vercel.app/",
-      image: groceryImage
+      image: groceryImage,
     },
     {
       title: "My Portfolio Website",
-      description: "Full-stack portfolio website built with React frontend and Node.js backend. Features project showcase, blog functionality, and contact form with email integration. Demonstrates both UI/UX and server-side skills.",
-      tech: ["React", "Tailwind CSS", "node.js", "Express", ],
+      description:
+        "Full-stack portfolio website built with React frontend and Node.js backend. Features project showcase, blog functionality, and contact form with email integration.",
+      tech: ["React", "Tailwind CSS", "node.js", "Express"],
       github: "https://github.com/abirhammuch/portfolio",
       live: "https://portfolio-ten-sepia-94.vercel.app/",
-      image: portfolioImage
+      image: portfolioImage,
     },
     {
       title: "On Progress...",
-      description: "Manage is a productivity platform that helps software teams plan day-to-day tasks while keeping larger team goals in view. Unlike traditional project management tools, Manage replaces multiple subscriptions, eliminates cross-channel confusion, and improves communication across teams.",
+      description:
+        "Manage is a productivity platform that helps software teams plan day-to-day tasks while keeping larger team goals in view.",
       tech: ["React", "Node.js", "MongoDB", "Express"],
       github: "https://github.com/abirhammuch/tailwind",
       live: "https://manage-beige-ten.vercel.app/",
-      image: manageImage
-    }
+      image: manageImage,
+    },
   ];
 
   return (
-    <section id="projects" className="py-20 px-6 md:px-10 bg-slate-50 dark:bg-slate-900/30">
+    <section
+      id="projects"
+      className="py-20 px-6 md:px-10 bg-slate-50 dark:bg-slate-900/30"
+    >
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 text-sky-500 text-sm mb-4">
             <span className="animate-pulse">✦</span> My Work
           </div>
+
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
-            Featured <span className="bg-gradient-to-r from-sky-500 to-violet-500 bg-clip-text text-transparent">Projects</span>
+            Featured{" "}
+            <span className="bg-gradient-to-r from-sky-500 to-violet-500 bg-clip-text text-transparent">
+              Projects
+            </span>
           </h2>
+
           <p className="text-slate-600 dark:text-slate-400 mt-3 max-w-2xl mx-auto">
             Web applications and solutions I've developed for real-world needs
           </p>
+
           <div className="w-20 h-1 bg-gradient-to-r from-sky-500 to-violet-500 mx-auto mt-4 rounded-full"></div>
         </div>
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div 
+            <div
               key={index}
-              className="group bg-white dark:bg-slate-800/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+              className="group bg-white dark:bg-slate-800/50 rounded-2xl overflow-hidden shadow-lg
+              transition-all duration-500 ease-out
+              hover:-translate-y-3 hover:scale-[1.03]
+              hover:shadow-[0_25px_60px_rgba(56,189,248,0.25)]
+              hover:rotate-[0.3deg]"
             >
               {/* Project Image */}
               <div className="relative h-48 overflow-hidden bg-gradient-to-br from-sky-500/20 to-violet-500/20">
-                <img 
+                <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
@@ -76,25 +95,25 @@ const Projects = () => {
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
                   {project.title}
                 </h3>
+
                 <p className="text-slate-600 dark:text-slate-400 text-sm mb-4 leading-relaxed">
                   {project.description}
                 </p>
 
-              {/* Tech Stack - Gradient Text */}
+                {/* Tech Stack */}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tech.map((tech, i) => (
-                    <span 
+                    <span
                       key={i}
-                      className="px-2 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 bg-gradient-to-r from-sky-500 to-violet-500 bg-clip-text text-transparent"
+                      className="px-2 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                {/* Buttons Container */}
+                {/* Buttons */}
                 <div className="flex gap-3 pt-2">
-                  {/* Code Button */}
                   <a
                     href={project.github}
                     target="_blank"
@@ -105,7 +124,6 @@ const Projects = () => {
                     <span>Code</span>
                   </a>
 
-                  {/* Live Button */}
                   <a
                     href={project.live}
                     target="_blank"
