@@ -81,11 +81,9 @@ const Footer = () => {
           {/* Copyright */}
           <div className="text-center">
             <p className="text-sm text-slate-500 dark:text-slate-400">
-              © {currentYear} Abirham's Portfolio. All rights reserved.
+              © {currentYear} Abirham's Portfolio.  All rights reserved.
             </p>
-            <p className="text-xs text-slate-400 dark:text-slate-500 mt-2 flex items-center justify-center gap-1">
-              Built with <FaHeart className="w-3 h-3 text-red-500" /> React & Tailwind CSS
-            </p>
+            
           </div>
         </div>
       </div>
