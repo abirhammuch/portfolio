@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { 
   FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, 
@@ -10,6 +10,30 @@ import {
 import { VscCode } from "react-icons/vsc";
 
 const Skills = () => {
+  // State for scroll-triggered animations
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  // Scroll animation observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2, triggerOnce: true }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   // Animation Variants
   const container = {
@@ -71,48 +95,55 @@ const Skills = () => {
   ];
 
   return (
-    <section className="py-20 px-6 bg-slate-950 text-white">
+    <section 
+      ref={sectionRef}
+      className="py-20 px-6 md:px-10 bg-slate-50 dark:bg-slate-900/30"
+    >
       <div className="max-w-6xl mx-auto">
-
-        {/* Header */}
+        {/* Header with Scroll Animation */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          viewport={{ once: true, threshold: 0.2 }}
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold">
-            Tech Stack
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 text-sky-500 text-sm mb-4">
+            <span className="animate-pulse">✦</span> What I Use
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
+            Tech <span className="bg-gradient-to-r from-sky-500 to-violet-500 bg-clip-text text-transparent">Stack</span>
           </h2>
-          <p className="text-gray-400 mt-3">
-            Technologies I use to build modern applications
+          <p className="text-slate-600 dark:text-slate-400 mt-3">
+            Technologies I work with to bring ideas to life
           </p>
+          <div className="w-20 h-1 bg-gradient-to-r from-sky-500 to-violet-500 mx-auto mt-4 rounded-full"></div>
         </motion.div>
 
-        {/* Grid */}
+        {/* Skills Grid */}
         <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+          viewport={{ once: true, threshold: 0.2 }}
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {skillCategories.map((category, idx) => (
             <motion.div
               key={idx}
               variants={item}
               whileHover={{ scale: 1.05, y: -10 }}
+              transition={{ duration: 0.3 }}
               className="relative group"
             >
-
-              {/* Glow */}
+              {/* Glow Effect on Hover */}
               <div className="absolute inset-0 bg-gradient-to-r from-sky-500 to-violet-500 rounded-2xl blur-xl opacity-0 group-hover:opacity-40 transition duration-500"></div>
 
               {/* Card */}
-              <div className="relative bg-slate-900 p-6 rounded-2xl border border-slate-800">
+              <div className="relative bg-white dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300">
 
                 {/* Category Header */}
-                <div className="flex items-center gap-3 mb-6">
-                  
+                <div className="flex items-center gap-3 mb-6 pb-2 border-b border-slate-200 dark:border-slate-700">
                   <motion.div
                     animate={{ y: [0, -4, 0] }}
                     transition={{ duration: 2, repeat: Infinity }}
@@ -121,54 +152,40 @@ const Skills = () => {
                   >
                     <category.icon className="text-white text-lg" />
                   </motion.div>
-
-                  <h3 className="text-lg font-semibold">
+                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
                     {category.title}
                   </h3>
                 </div>
 
                 {/* Skills */}
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {category.skills.map((skill, i) => (
                     <motion.div
                       key={i}
-                      whileHover={{ x: 6 }}
-                      className="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-800 transition"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={isVisible ? { opacity: 1, x: 0 } : {}}
+                      transition={{ delay: i * 0.1, duration: 0.4 }}
+                      whileHover={{ x: 8 }}
+                      className="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all duration-300"
                     >
-
                       {/* Animated Icon */}
                       <motion.div
-                        initial={{ scale: 0, opacity: 0 }}
-                        animate={{ 
-                          scale: 1, 
-                          opacity: 1,
-                          y: [0, -3, 0]
-                        }}
-                        transition={{
-                          delay: i * 0.1,
-                          duration: 0.5,
-                          y: {
-                            duration: 2,
-                            repeat: Infinity
-                          }
-                        }}
                         whileHover={{
                           scale: 1.3,
-                          rotate: 10
+                          rotate: 10,
+                          transition: { duration: 0.2 }
                         }}
-                        className="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-800 shadow-md"
+                        className="w-10 h-10 flex items-center justify-center rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700 shadow-md"
                       >
-                        <skill.icon style={{ color: skill.color }} />
+                        <skill.icon className="w-5 h-5" style={{ color: skill.color }} />
                       </motion.div>
 
-                      <span className="text-sm text-gray-300">
+                      <span className="text-sm text-slate-700 dark:text-slate-300 font-medium">
                         {skill.name}
                       </span>
-
                     </motion.div>
                   ))}
                 </div>
-
               </div>
             </motion.div>
           ))}

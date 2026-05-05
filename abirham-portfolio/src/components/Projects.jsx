@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { FaGithub } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
 import groceryImage from "../assets/grocery1.png";
@@ -74,65 +74,73 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group bg-white dark:bg-slate-800/50 rounded-2xl overflow-hidden shadow-lg
+              className="group relative bg-white dark:bg-slate-800/50 rounded-2xl overflow-hidden shadow-lg
               transition-all duration-500 ease-out
               hover:-translate-y-3 hover:scale-[1.03]
               hover:shadow-[0_25px_60px_rgba(56,189,248,0.25)]
               hover:rotate-[0.3deg]"
             >
-              {/* Project Image */}
-              <div className="relative h-48 overflow-hidden bg-gradient-to-br from-sky-500/20 to-violet-500/20">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              {/* Animated Border Gradient */}
+              <div className="absolute inset-0 rounded-2xl p-[2px] bg-gradient-to-r from-sky-500 via-violet-500 to-fuchsia-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0">
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-sky-500 via-violet-500 to-fuchsia-500 animate-border-spin"></div>
               </div>
-
-              {/* Project Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
-                  {project.title}
-                </h3>
-
-                <p className="text-slate-600 dark:text-slate-400 text-sm mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tech.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="px-2 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+              
+              {/* Inner Content - prevents border from covering content */}
+              <div className="relative z-10 bg-white dark:bg-slate-800/50 rounded-2xl overflow-hidden">
+                {/* Project Image */}
+                <div className="relative h-48 overflow-hidden bg-gradient-to-br from-sky-500/20 to-violet-500/20">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
 
-                {/* Buttons */}
-                <div className="flex gap-3 pt-2">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group/btn flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium text-sm transition-all duration-300 hover:bg-slate-200 dark:hover:bg-slate-600 hover:shadow-md hover:-translate-y-0.5"
-                  >
-                    <FaGithub className="w-4 h-4 transition-transform duration-300 group-hover/btn:rotate-12" />
-                    <span>Code</span>
-                  </a>
+                {/* Project Content */}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
+                    {project.title}
+                  </h3>
 
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group/btn flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-sky-500 to-violet-500 text-white font-medium text-sm transition-all duration-300 hover:shadow-lg hover:shadow-sky-500/25 hover:-translate-y-0.5"
-                  >
-                    <FiExternalLink className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-                    <span>Live</span>
-                  </a>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm mb-4 leading-relaxed">
+                    {project.description}
+                  </p>
+
+                  {/* Tech Stack */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tech.map((tech, i) => (
+                      <span
+                        key={i}
+                        className="px-2 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-sky-500 hover:to-violet-500 hover:text-white"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Buttons */}
+                  <div className="flex gap-3 pt-2">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/btn flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium text-sm transition-all duration-300 hover:bg-slate-200 dark:hover:bg-slate-600 hover:shadow-md hover:-translate-y-0.5"
+                    >
+                      <FaGithub className="w-4 h-4 transition-transform duration-300 group-hover/btn:rotate-12" />
+                      <span>Code</span>
+                    </a>
+
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/btn flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-sky-500 to-violet-500 text-white font-medium text-sm transition-all duration-300 hover:shadow-lg hover:shadow-sky-500/25 hover:-translate-y-0.5"
+                    >
+                      <FiExternalLink className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                      <span>Live</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -150,6 +158,26 @@ const Projects = () => {
           </a>
         </div>
       </div>
+
+      <style>{`
+        @keyframes border-spin {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+        
+        .animate-border-spin {
+          animation: border-spin 3s linear infinite;
+        }
+        
+        /* Optional: Add glow effect on hover */
+        .group:hover .rounded-2xl {
+          box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+        }
+      `}</style>
     </section>
   );
 };
