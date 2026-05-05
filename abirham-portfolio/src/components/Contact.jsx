@@ -125,7 +125,7 @@ const Contact = () => {
                 <a href="mailto:abirhammuch526@gmail.com" target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition-all duration-300 hover:scale-110">
                   <MdEmail className="w-5 h-5" />
                 </a>
-                 <a href="https://t.me/@ma_rsh-al" target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition-all duration-300 hover:scale-110">
+                 <a href="https://t.me/ma_rsh_al" target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition-all duration-300 hover:scale-110">
                   <FaTelegramPlane className="w-5 h-5" />
                 </a>
               </div>
