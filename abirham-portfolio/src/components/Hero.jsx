@@ -9,12 +9,11 @@ const Hero = () => {
   const [delta, setDelta] = useState(150);
 
   const roles = [
-    "Front End Developer",
-    "Back End Developer",
-    "Full Stack Developer",
+    "Aspiring Full-Stack Developer",
+    "React & Node.js Developer",
+    "MERN Stack Enthusiast",
   ];
 
-  // Scroll to section function
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -22,7 +21,6 @@ const Hero = () => {
     }
   };
 
-  // Initialize text on mount
   useEffect(() => {
     setText(roles[0]);
   }, []);
@@ -42,7 +40,11 @@ const Hero = () => {
     };
 
     const createDots = () => {
-      const dotCount = Math.floor((canvas.width * canvas.height) / 8000);
+      const dotCount = Math.min(
+        120,
+        Math.floor((canvas.width * canvas.height) / 10000)
+      );
+
       for (let i = 0; i < dotCount; i++) {
         dots.push({
           x: Math.random() * canvas.width,
@@ -127,7 +129,6 @@ const Hero = () => {
 
   return (
     <>
-      {/* Canvas Background */}
       <canvas
         ref={canvasRef}
         className="fixed inset-0 z-0 pointer-events-none"
@@ -138,13 +139,14 @@ const Hero = () => {
         className="relative grid place-items-center px-6 pb-20 pt-10 text-center md:px-10 min-h-screen z-10"
       >
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-8">
+
           {/* Logo */}
           <div className="relative">
             <div className="absolute inset-0 rounded-full border-2 border-sky-400 animate-ping opacity-75"></div>
             <div className="absolute inset-0 rounded-full border-2 border-sky-500 animate-pulse"></div>
             <div className="absolute inset-[-4px] rounded-full bg-gradient-to-r from-sky-500 via-violet-500 to-fuchsia-500 animate-spin-slow opacity-50"></div>
 
-            <div className="relative flex h-28 w-28 items-center justify-center rounded-full border border-slate-700/80 bg-slate-900/80 text-4xl text-sky-300 shadow-[0_0_60px_rgba(59,130,246,0.2)] animate-glow">
+            <div className="relative flex h-28 w-28 items-center justify-center rounded-full border border-slate-700/80 bg-slate-900/80 text-4xl text-sky-300 shadow-[0_0_60px_rgba(59,130,246,0.2)]">
               &lt;/&gt;
             </div>
           </div>
@@ -154,21 +156,29 @@ const Hero = () => {
             <div className="text-sm uppercase tracking-[0.35em] text-sky-300/80 min-h-[28px]">
               <span className="inline-flex items-center gap-1">
                 <span className="animate-pulse">✦</span>
-                {text || roles[0]}
+                {text}
                 <span className="animate-blink">|</span>
               </span>
             </div>
 
             <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-6xl md:text-7xl">
-              Web{" "}
+              Aspiring{" "}
               <span className="bg-gradient-to-r from-sky-400 via-violet-400 to-fuchsia-500 bg-clip-text text-transparent animate-gradient">
-                Developer
+                Full-Stack Developer
               </span>
             </h1>
 
             <p className="mx-auto max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-              Building modern web applications with React, Node.js, and Express.
-              Continuously learning and mastering new web technologies.
+              I’m Abirham, an IT student and aspiring full-stack developer passionate about building scalable and user-friendly web applications.
+              I specialize in React, Node.js, and MongoDB, and enjoy transforming ideas into real-world digital solutions.
+            </p>
+
+            <p className="text-sm text-sky-400/80">
+              React • Node.js • Express • MongoDB • Tailwind CSS
+            </p>
+
+            <p className="text-xs text-slate-400">
+              Built a MERN-based grocery shopping platform with authentication, product filtering, and cart system.
             </p>
           </div>
 
@@ -176,7 +186,7 @@ const Hero = () => {
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
             <button
               onClick={() => scrollToSection("projects")}
-              className="rounded-full bg-gradient-to-r from-sky-500 to-violet-500 px-8 py-3 text-sm font-semibold text-white transition hover:scale-105"
+              className="rounded-full bg-gradient-to-r from-sky-500 to-violet-500 px-8 py-3 text-sm font-semibold text-white transition hover:scale-105 hover:shadow-[0_0_20px_rgba(59,130,246,0.5)]"
             >
               View Projects
             </button>
@@ -187,82 +197,51 @@ const Hero = () => {
             >
               Contact Me
             </button>
+
+            {/* Download CV */}
+            <a
+              href="/Abirham_Muche_FlowCV_Resume_2026-05-06 (1).pdf"
+              download="Abirham_Muche_CV.pdf"
+              className="rounded-full border border-sky-500 px-8 py-3 text-sm font-semibold text-sky-300 transition hover:scale-105 hover:bg-sky-500/10"
+            >
+              Download CV
+            </a>
           </div>
 
-          {/* Social Icons (ONLY UPDATED PART) */}
+          {/* Social Icons */}
           <div className="flex items-center gap-4 text-slate-400">
             <a
               href="https://github.com/abirhammuch"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ animationDelay: "0s" }}
-              className="icon-float flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-900/70 transition hover:scale-125 hover:text-white hover:shadow-lg"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-900/70 transition hover:scale-125 hover:text-white"
             >
-              <FaGithub className="text-xl" />
+              <FaGithub />
             </a>
 
             <a
               href="https://et.linkedin.com/in/abirham-muche-4aa7a6320"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ animationDelay: "0.2s" }}
-              className="icon-float flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-900/70 transition hover:scale-125 hover:text-white hover:shadow-lg"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-900/70 transition hover:scale-125 hover:text-white"
             >
-              <FaLinkedin className="text-xl" />
+              <FaLinkedin />
             </a>
 
             <a
               href="mailto:abirhammuch526@gmail.com"
-              style={{ animationDelay: "0.4s" }}
-              className="icon-float flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-900/70 transition hover:scale-125 hover:text-white hover:shadow-lg"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-900/70 transition hover:scale-125 hover:text-white"
             >
-              <FaEnvelope className="text-xl" />
+              <FaEnvelope />
             </a>
+          </div>
+
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-6 animate-bounce text-slate-400">
+            ↓
           </div>
         </div>
       </main>
-
-      {/* Styles */}
-      <style>{`
-        @keyframes blink {
-          0%, 50% { opacity: 1; }
-          51%, 100% { opacity: 0; }
-        }
-
-        @keyframes gradient {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-
-        @keyframes glow {
-          0%, 100% { box-shadow: 0 0 20px rgba(56, 189, 248, 0.2); }
-          50% { box-shadow: 0 0 50px rgba(56, 189, 248, 0.6); }
-        }
-
-        @keyframes spin-slow {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-
-        @keyframes float {
-          0% { transform: translateY(0px); }
-          50% { transform: translateY(-6px); }
-          100% { transform: translateY(0px); }
-        }
-
-        .animate-blink { animation: blink 1s step-end infinite; }
-        .animate-gradient {
-          background-size: 200% auto;
-          animation: gradient 3s linear infinite;
-        }
-        .animate-glow { animation: glow 2s ease-in-out infinite; }
-        .animate-spin-slow { animation: spin-slow 4s linear infinite; }
-
-        .icon-float {
-          animation: float 3s ease-in-out infinite;
-        }
-      `}</style>
     </>
   );
 };
