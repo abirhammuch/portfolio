@@ -98,9 +98,7 @@ const Hero = () => {
 
   // Typing animation
   useEffect(() => {
-    const timer = setTimeout(() => {
-      tick();
-    }, delta);
+    const timer = setTimeout(() => tick(), delta);
     return () => clearTimeout(timer);
   }, [text, delta, currentRole, isDeleting]);
 
@@ -129,6 +127,7 @@ const Hero = () => {
 
   return (
     <>
+      {/* Background Canvas */}
       <canvas
         ref={canvasRef}
         className="fixed inset-0 z-0 pointer-events-none"
@@ -140,16 +139,13 @@ const Hero = () => {
       >
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-8">
 
-          {/* 🔥 PROFILE PHOTO (UPDATED) */}
+          {/* 🔥 PROFILE PHOTO */}
           <div className="relative group">
-            {/* glow effects */}
             <div className="absolute inset-0 rounded-full border-2 border-sky-400 animate-ping opacity-60"></div>
             <div className="absolute inset-0 rounded-full border-2 border-sky-500 animate-pulse"></div>
 
-            {/* rotating gradient */}
             <div className="absolute inset-[-4px] rounded-full bg-gradient-to-r from-sky-500 via-violet-500 to-fuchsia-500 animate-spin-slow opacity-40 blur-sm"></div>
 
-            {/* image */}
             <div className="relative flex h-28 w-28 overflow-hidden rounded-full border border-slate-700/80 shadow-[0_0_60px_rgba(59,130,246,0.3)] transition duration-500 group-hover:scale-110 group-hover:rotate-3">
               <img
                 src="/profile.png"
@@ -215,31 +211,34 @@ const Hero = () => {
             </a>
           </div>
 
-          {/* Social Icons */}
-          <div className="flex items-center gap-4 text-slate-400">
+          {/* 🫧 FLOATING SOCIAL ICONS */}
+          <div className="flex items-center gap-6 text-slate-400 mt-2">
             <a
               href="https://github.com/abirhammuch"
               target="_blank"
               rel="noopener noreferrer"
-              className="icon-float flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-900/70 transition hover:scale-125 hover:-translate-y-1 hover:text-white hover:shadow-lg"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-900/70 text-xl transition hover:scale-125 hover:-translate-y-1 hover:text-white hover:shadow-lg animate-float"
+              style={{ animationDelay: "0s" }}
             >
-              <FaGithub className="text-xl" />
+              <FaGithub />
             </a>
 
             <a
               href="https://et.linkedin.com/in/abirham-muche-4aa7a6320"
               target="_blank"
               rel="noopener noreferrer"
-              className="icon-float flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-900/70 transition hover:scale-125 hover:-translate-y-1 hover:text-white hover:shadow-lg"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-900/70 text-xl transition hover:scale-125 hover:-translate-y-1 hover:text-white hover:shadow-lg animate-float"
+              style={{ animationDelay: "0.5s" }}
             >
-              <FaLinkedin className="text-xl" />
+              <FaLinkedin />
             </a>
 
             <a
               href="mailto:abirhammuch526@gmail.com"
-              className="icon-float flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-900/70 transition hover:scale-125 hover:-translate-y-1 hover:text-white hover:shadow-lg"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-900/70 text-xl transition hover:scale-125 hover:-translate-y-1 hover:text-white hover:shadow-lg animate-float"
+              style={{ animationDelay: "1s" }}
             >
-              <FaEnvelope className="text-xl" />
+              <FaEnvelope />
             </a>
           </div>
         </div>
