@@ -9,9 +9,9 @@ const Hero = () => {
   const [delta, setDelta] = useState(150);
 
   const roles = [
-    "Aspiring Full-Stack Developer",
-    "React & Node.js Developer",
-    "MERN Stack Enthusiast",
+    "Front-End Developer",
+    "Back-End Developer",
+    "Full-Stack Developer",
   ];
 
   const scrollToSection = (sectionId) => {
@@ -42,7 +42,7 @@ const Hero = () => {
     const createDots = () => {
       const dotCount = Math.min(
         120,
-        Math.floor((canvas.width * canvas.height) / 10000),
+        Math.floor((canvas.width * canvas.height) / 10000)
       );
 
       for (let i = 0; i < dotCount; i++) {
@@ -139,14 +139,23 @@ const Hero = () => {
         className="relative grid place-items-center px-6 pb-20 pt-10 text-center md:px-10 min-h-screen z-10"
       >
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-8">
-          {/* Logo */}
-          <div className="relative">
-            <div className="absolute inset-0 rounded-full border-2 border-sky-400 animate-ping opacity-75"></div>
-            <div className="absolute inset-0 rounded-full border-2 border-sky-500 animate-pulse"></div>
-            <div className="absolute inset-[-4px] rounded-full bg-gradient-to-r from-sky-500 via-violet-500 to-fuchsia-500 animate-spin-slow opacity-50"></div>
 
-            <div className="relative flex h-28 w-28 items-center justify-center rounded-full border border-slate-700/80 bg-slate-900/80 text-4xl text-sky-300 shadow-[0_0_60px_rgba(59,130,246,0.2)]">
-              &lt;/&gt;
+          {/* 🔥 PROFILE PHOTO (UPDATED) */}
+          <div className="relative group">
+            {/* glow effects */}
+            <div className="absolute inset-0 rounded-full border-2 border-sky-400 animate-ping opacity-60"></div>
+            <div className="absolute inset-0 rounded-full border-2 border-sky-500 animate-pulse"></div>
+
+            {/* rotating gradient */}
+            <div className="absolute inset-[-4px] rounded-full bg-gradient-to-r from-sky-500 via-violet-500 to-fuchsia-500 animate-spin-slow opacity-40 blur-sm"></div>
+
+            {/* image */}
+            <div className="relative flex h-28 w-28 overflow-hidden rounded-full border border-slate-700/80 shadow-[0_0_60px_rgba(59,130,246,0.3)] transition duration-500 group-hover:scale-110 group-hover:rotate-3">
+              <img
+                src="/profile.png"
+                alt="Abirham"
+                className="h-full w-full object-cover transition duration-700 group-hover:scale-125"
+              />
             </div>
           </div>
 
@@ -161,17 +170,15 @@ const Hero = () => {
             </div>
 
             <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-6xl md:text-7xl">
-              Aspiring{" "}
+              Web{" "}
               <span className="bg-gradient-to-r from-sky-400 via-violet-400 to-fuchsia-500 bg-clip-text text-transparent animate-gradient">
-                Full-Stack Developer
+                Developer
               </span>
             </h1>
 
             <p className="mx-auto max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-              I’m Abirham, an IT student and aspiring full-stack developer
-              passionate about building scalable and user-friendly web
-              applications. I specialize in React, Node.js, and MongoDB, and
-              enjoy transforming ideas into real-world digital solutions.
+              I’m Abirham, a full-stack developer focused on building scalable and user-friendly web applications. 
+              I enjoy turning ideas into real-world solutions using modern technologies.
             </p>
 
             <p className="text-sm text-sky-400/80">
@@ -179,8 +186,7 @@ const Hero = () => {
             </p>
 
             <p className="text-xs text-slate-400">
-              Built a MERN-based grocery shopping platform with authentication,
-              product filtering, and cart system.
+              Built a full-stack e-commerce web app with authentication and payment simulation.
             </p>
           </div>
 
@@ -188,7 +194,7 @@ const Hero = () => {
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
             <button
               onClick={() => scrollToSection("projects")}
-              className="rounded-full bg-gradient-to-r from-sky-500 to-violet-500 px-8 py-3 text-sm font-semibold text-white transition hover:scale-105 hover:shadow-[0_0_20px_rgba(59,130,246,0.5)]"
+              className="rounded-full bg-gradient-to-r from-sky-500 to-violet-500 px-8 py-3 text-sm font-semibold text-white transition hover:scale-105"
             >
               View Projects
             </button>
@@ -200,10 +206,9 @@ const Hero = () => {
               Contact Me
             </button>
 
-            {/* Download CV */}
             <a
               href="/Abirham_Muche_CV.pdf"
-              download="Abirham_Muche_CV.pdf"
+              download
               className="rounded-full border border-sky-500 px-8 py-3 text-sm font-semibold text-sky-300 transition hover:scale-105 hover:bg-sky-500/10"
             >
               Download CV
@@ -216,31 +221,26 @@ const Hero = () => {
               href="https://github.com/abirhammuch"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-900/70 transition hover:scale-125 hover:text-white"
+              className="icon-float flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-900/70 transition hover:scale-125 hover:-translate-y-1 hover:text-white hover:shadow-lg"
             >
-              <FaGithub />
+              <FaGithub className="text-xl" />
             </a>
 
             <a
               href="https://et.linkedin.com/in/abirham-muche-4aa7a6320"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-900/70 transition hover:scale-125 hover:text-white"
+              className="icon-float flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-900/70 transition hover:scale-125 hover:-translate-y-1 hover:text-white hover:shadow-lg"
             >
-              <FaLinkedin />
+              <FaLinkedin className="text-xl" />
             </a>
 
             <a
               href="mailto:abirhammuch526@gmail.com"
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-900/70 transition hover:scale-125 hover:text-white"
+              className="icon-float flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-900/70 transition hover:scale-125 hover:-translate-y-1 hover:text-white hover:shadow-lg"
             >
-              <FaEnvelope />
+              <FaEnvelope className="text-xl" />
             </a>
-          </div>
-
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-6 animate-bounce text-slate-400">
-            ↓
           </div>
         </div>
       </main>
