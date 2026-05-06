@@ -42,7 +42,7 @@ const Hero = () => {
     const createDots = () => {
       const dotCount = Math.min(
         120,
-        Math.floor((canvas.width * canvas.height) / 10000)
+        Math.floor((canvas.width * canvas.height) / 10000),
       );
 
       for (let i = 0; i < dotCount; i++) {
@@ -139,7 +139,6 @@ const Hero = () => {
         className="relative grid place-items-center px-6 pb-20 pt-10 text-center md:px-10 min-h-screen z-10"
       >
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-8">
-
           {/* Logo */}
           <div className="relative">
             <div className="absolute inset-0 rounded-full border-2 border-sky-400 animate-ping opacity-75"></div>
@@ -169,8 +168,10 @@ const Hero = () => {
             </h1>
 
             <p className="mx-auto max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-              I’m Abirham, an IT student and aspiring full-stack developer passionate about building scalable and user-friendly web applications.
-              I specialize in React, Node.js, and MongoDB, and enjoy transforming ideas into real-world digital solutions.
+              I’m Abirham, an IT student and aspiring full-stack developer
+              passionate about building scalable and user-friendly web
+              applications. I specialize in React, Node.js, and MongoDB, and
+              enjoy transforming ideas into real-world digital solutions.
             </p>
 
             <p className="text-sm text-sky-400/80">
@@ -178,7 +179,8 @@ const Hero = () => {
             </p>
 
             <p className="text-xs text-slate-400">
-              Built a MERN-based grocery shopping platform with authentication, product filtering, and cart system.
+              Built a MERN-based grocery shopping platform with authentication,
+              product filtering, and cart system.
             </p>
           </div>
 
@@ -200,7 +202,7 @@ const Hero = () => {
 
             {/* Download CV */}
             <a
-              href="/Abirham_Muche_FlowCV_Resume_2026-05-06 (1).pdf"
+              href="/Abirham_Muche_CV.pdf"
               download="Abirham_Muche_CV.pdf"
               className="rounded-full border border-sky-500 px-8 py-3 text-sm font-semibold text-sky-300 transition hover:scale-105 hover:bg-sky-500/10"
             >
