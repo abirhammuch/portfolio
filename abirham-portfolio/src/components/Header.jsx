@@ -6,8 +6,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [underlineStyle, setUnderlineStyle] = useState({ width: 0, left: 0 });
-  
-  // Get theme from context
+
   const { theme, toggleTheme } = useTheme();
 
   const navItems = [
@@ -19,7 +18,6 @@ const Header = () => {
     { name: "Contact", id: "contact" },
   ];
 
-  // Smooth scroll function
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -28,7 +26,6 @@ const Header = () => {
     }
   };
 
-  // Track active section on scroll
   useEffect(() => {
     const handleScroll = () => {
       const sections = navItems.map((item) => document.getElementById(item.id));
@@ -47,7 +44,6 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Update underline position when active section changes
   useEffect(() => {
     const activeIndex = navItems.findIndex((item) => item.id === activeSection);
     if (activeIndex !== -1) {
@@ -67,7 +63,6 @@ const Header = () => {
     }
   }, [activeSection]);
 
-  // Initialize underline position on mount
   useEffect(() => {
     const timer = setTimeout(() => {
       const navContainer = document.querySelector(".nav-container");
@@ -104,7 +99,6 @@ const Header = () => {
     <>
       <header className="fixed top-0 w-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm shadow-sm z-50 transition-colors duration-300">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
-          {/* Logo - clicks to home */}
           <button
             onClick={() => scrollToSection("home")}
             className="flex items-center gap-3 text-lg font-semibold cursor-pointer"
@@ -115,7 +109,6 @@ const Header = () => {
             <span className="text-slate-900 dark:text-white">Abirham</span>
           </button>
 
-          {/* Desktop Navigation - Scroll to sections */}
           <div className="hidden items-center gap-8 text-sm font-medium md:flex relative nav-container">
             {navItems.map((item) => (
               <button
@@ -126,7 +119,6 @@ const Header = () => {
                 {item.name}
               </button>
             ))}
-            {/* Sliding Underline */}
             <div
               className="absolute bottom-0 h-0.5 bg-blue-600 transition-all duration-300 ease-in-out"
               style={{
@@ -137,22 +129,21 @@ const Header = () => {
             />
           </div>
 
-          {/* Theme Toggle and Mobile Menu Button */}
           <div className="flex items-center gap-3">
             {/* Theme Toggle Button */}
             <button
+              type="button"
               onClick={toggleTheme}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 transition-all duration-200 hover:border-blue-500 hover:text-blue-600 dark:hover:border-blue-500 dark:hover:text-blue-400 cursor-pointer"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 transition-all duration-200 hover:border-blue-500 hover:text-blue-600 cursor-pointer"
               aria-label="Toggle theme"
             >
-              {theme === 'dark' ? (
+              {theme === "dark" ? (
                 <Sun className="h-5 w-5" />
               ) : (
                 <Moon className="h-5 w-5" />
               )}
             </button>
 
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 transition hover:border-blue-500 hover:text-blue-600 cursor-pointer"
@@ -167,14 +158,12 @@ const Header = () => {
         </nav>
       </header>
 
-      {/* Mobile Menu */}
       {isMenuOpen && (
         <>
           <div
             className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
             onClick={() => setIsMenuOpen(false)}
           />
-
           <div className="fixed top-0 right-0 h-full w-80 bg-white dark:bg-slate-900 shadow-2xl z-50 md:hidden animate-slide-in">
             <div className="flex justify-between items-center p-6 border-b dark:border-slate-700">
               <span className="text-xl font-bold text-slate-900 dark:text-white">
