@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
-import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [underlineStyle, setUnderlineStyle] = useState({ width: 0, left: 0 });
+  
+  // Get theme from context
+  const { theme, toggleTheme } = useTheme();
 
   const navItems = [
     { name: "Home", id: "home" },
@@ -71,7 +73,7 @@ const Header = () => {
       const navContainer = document.querySelector(".nav-container");
       if (navContainer) {
         const buttons = navContainer.querySelectorAll("button");
-        const activeButton = buttons[0]; // Home is active by default
+        const activeButton = buttons[0];
         if (activeButton) {
           const containerRect = navContainer.getBoundingClientRect();
           const buttonRect = activeButton.getBoundingClientRect();
@@ -81,7 +83,7 @@ const Header = () => {
           });
         }
       }
-    }, 100); // Small delay to ensure DOM is ready
+    }, 100);
 
     return () => clearTimeout(timer);
   }, []);
@@ -135,13 +137,25 @@ const Header = () => {
             />
           </div>
 
-          {/* Icons */}
+          {/* Theme Toggle and Mobile Menu Button */}
           <div className="flex items-center gap-3">
-            
-              {/* <ThemeToggle /> */}
+            {/* Theme Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 transition-all duration-200 hover:border-blue-500 hover:text-blue-600 dark:hover:border-blue-500 dark:hover:text-blue-400 cursor-pointer"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
+            </button>
+
+            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden flex h-12 w-12 items-center justify-center rounded-full border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 transition hover:border-blue-500 hover:text-blue-600 cursor-pointer"
+              className="md:hidden flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 transition hover:border-blue-500 hover:text-blue-600 cursor-pointer"
             >
               {isMenuOpen ? (
                 <X className="h-5 w-5" />
