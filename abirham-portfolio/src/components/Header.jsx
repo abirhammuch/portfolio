@@ -131,7 +131,9 @@ const Header = () => {
 
           <div className="flex items-center gap-3">
             {/* Theme Toggle Button */}
-            <button
+
+             {/* 
+             <button
               type="button"
               onClick={toggleTheme}
               className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 transition-all duration-200 hover:border-blue-500 hover:text-blue-600 cursor-pointer"
@@ -143,6 +145,8 @@ const Header = () => {
                 <Moon className="h-5 w-5" />
               )}
             </button>
+             */}
+            
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
