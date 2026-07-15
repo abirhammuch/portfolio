@@ -103,8 +103,8 @@ const Header = () => {
             onClick={() => scrollToSection("home")}
             className="flex items-center gap-3 text-lg font-semibold cursor-pointer"
           >
-            <img src="../../public/logo.png" alt="Logo" className="h-10 w-10" />
-            <span className="text-slate-900 dark:text-white">Abir Hamid</span>
+            <img src="/logo.png" alt="Logo" className="h-10 w-10" />
+            <span className="text-slate-900 dark:text-white"></span>
           </button>
 
           <div className="hidden items-center gap-8 text-sm font-medium md:flex relative nav-container">
@@ -130,7 +130,7 @@ const Header = () => {
           <div className="flex items-center gap-3">
             {/* Theme Toggle Button */}
 
-             {/* 
+            {/* 
              <button
               type="button"
               onClick={toggleTheme}
@@ -144,7 +144,6 @@ const Header = () => {
               )}
             </button>
              */}
-            
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
