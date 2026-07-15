@@ -103,7 +103,7 @@ const Header = () => {
             onClick={() => scrollToSection("home")}
             className="flex items-center gap-3 text-lg font-semibold cursor-pointer"
           >
-            <img src="/logo.png" alt="Logo" className="h-10 w-10" />
+            <img src="/logo.png" alt="Logo" className="h-10 w-20 rounded-full" />
             <span className="text-slate-900 dark:text-white"></span>
           </button>
 
