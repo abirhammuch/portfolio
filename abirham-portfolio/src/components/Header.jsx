@@ -104,7 +104,7 @@ const Header = () => {
             className="flex items-center gap-3 text-lg font-semibold cursor-pointer"
           >
             <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-500 to-violet-500 text-white text-xl shadow-xl shadow-sky-500/20">
-              logo
+              <img src="public/favicon.ico" alt="Logo" className="h-8 w-8" />
             </span>
             <span className="text-slate-900 dark:text-white"></span>
           </button>
