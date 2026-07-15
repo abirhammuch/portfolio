@@ -103,8 +103,8 @@ const Header = () => {
             onClick={() => scrollToSection("home")}
             className="flex items-center gap-3 text-lg font-semibold cursor-pointer"
           >
-            <img src="../assets/hero.png" alt="Logo" className="h-8 w-8 rounded-full" />
-            <span className="text-slate-900 dark:text-white"></span>
+            <img src="../../public/logo.png" alt="Logo" className="h-10 w-10" />
+            <span className="text-slate-900 dark:text-white">Abir Hamid</span>
           </button>
 
           <div className="hidden items-center gap-8 text-sm font-medium md:flex relative nav-container">
