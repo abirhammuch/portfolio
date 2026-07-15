@@ -103,9 +103,7 @@ const Header = () => {
             onClick={() => scrollToSection("home")}
             className="flex items-center gap-3 text-lg font-semibold cursor-pointer"
           >
-            <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-500 to-violet-500 text-white text-xl shadow-xl shadow-sky-500/20">
-              <img src="public/favicon.ico" alt="Logo" className="h-8 w-8" />
-            </span>
+            <img src="../assets/hero.png" alt="Logo" className="h-8 w-8 rounded-full" />
             <span className="text-slate-900 dark:text-white"></span>
           </button>
 
