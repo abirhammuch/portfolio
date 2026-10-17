@@ -4,6 +4,7 @@ import { FiExternalLink } from "react-icons/fi";
 import groceryImage from "../assets/grocery1.png";
 import portfolioImage from "../assets/portfolio.png";
 import manageImage from "../assets/manage.png";
+import restaurantImage from "../assets/restaurant.png";
 
 const Projects = () => {
   const projects = [
@@ -21,7 +22,7 @@ const Projects = () => {
       ],
       github: "https://github.com/abirhammuch/Restaurant-APP",
       live: "https://restaurant-app-zq6o.vercel.app/",
-      image: groceryImage,
+      image: restaurantImage,
     },
     {
       title: "Modern Grocery Shopping Platform",
