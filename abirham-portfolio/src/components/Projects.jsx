@@ -11,7 +11,7 @@ const Projects = () => {
     {
       title: "Modern Restaurant Management Platform",
       description:
-        "Modern restaurant management and digital menu platform with intuitive UI, order tracking, inventory management, and seamless checkout experience. Built with MERN stack.",
+        "A modern restaurant web app with a QR-code-based ordering experience, allowing customers to scan and browse the menu, place orders, and complete checkout seamlessly from their phones. It features category-based menu discovery, cart and payment flow, responsive design, and a streamlined digital dining experience built with React, Node.js, Express, MongoDB, and Stripe.",
       tech: [
         "React",
         "Node.js",
