@@ -8,6 +8,22 @@ import manageImage from "../assets/manage.png";
 const Projects = () => {
   const projects = [
     {
+      title: "Modern Restaurant Shopping Platform",
+      description:
+        "Modern grocery shopping platform with intuitive UI, product search and filtering, shopping cart functionality, and seamless checkout experience. Built with MERN stack.",
+      tech: [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Express",
+        "Tailwind CSS",
+        "stripe",
+      ],
+      github: "https://github.com/abirhammuch/grocery",
+      live: "https://grocery-neon-kappa.vercel.app/",
+      image: groceryImage,
+    },
+    {
       title: "Modern Grocery Shopping Platform",
       description:
         "Modern grocery shopping platform with intuitive UI, product search and filtering, shopping cart functionality, and seamless checkout experience. Built with MERN stack.",
