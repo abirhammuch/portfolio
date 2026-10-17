@@ -29,7 +29,7 @@ const Projects = () => {
         "Full-stack portfolio website built with React frontend and Node.js backend. Features project showcase, blog functionality, and contact form with email integration.",
       tech: ["React", "Tailwind CSS", "node.js", "Express"],
       github: "https://github.com/abirhammuch/portfolio",
-      live: "https://portfolio-ten-sepia-94.vercel.app/",
+      live: "https://abirhamportfolio.vercel.app/",
       image: portfolioImage,
     },
     {
