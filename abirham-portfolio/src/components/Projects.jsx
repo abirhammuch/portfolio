@@ -37,7 +37,7 @@ const Projects = () => {
         "stripe",
       ],
       github: "https://github.com/abirhammuch/grocery",
-      live: "https://grocery-neon-kappa.vercel.app/",
+      live: "https://grocery-gray-psi.vercel.app/",
       image: groceryImage,
     },
     {
@@ -48,15 +48,6 @@ const Projects = () => {
       github: "https://github.com/abirhammuch/portfolio",
       live: "https://abirhamportfolio.vercel.app/",
       image: portfolioImage,
-    },
-    {
-      title: "On Progress...",
-      description:
-        "Manage is a productivity platform that helps software teams plan day-to-day tasks while keeping larger team goals in view.",
-      tech: ["React", "Node.js", "MongoDB", "Express"],
-      github: "https://github.com/abirhammuch/tailwind",
-      live: "https://manage-beige-ten.vercel.app/",
-      image: manageImage,
     },
   ];
 
